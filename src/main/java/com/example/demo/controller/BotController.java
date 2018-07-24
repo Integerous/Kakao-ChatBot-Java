@@ -34,11 +34,21 @@ public class BotController {
 		JSONObject joText = new JSONObject();
 		
 		if(content.contains("안녕")) {
-			joText.put("text", "안녕하세요");
+			joText.put("text", "안녕이라고 말하지마~");
 		}else if(content.contains("뭐해")) {
 			joText.put("text", "챗봇만들어요");
+		}else if(content.contains("누구")) {
+			joText.put("text", "저는 구름현금 테스트봇이에요~");
+		}else if(content.contains("꺼저")) {
+			joText.put("text", "반사");
+		}else if(content.contains("미친")) {
+			joText.put("text", "뭐? 미친?");
+		}else if(content.contains("ㅎㅇ")) {
+			joText.put("text", "whassup~");
+		}else if(content.contains("조용")) {
+			joText.put("text", "쉿~");
 		}else {
-			joText.put("text", "무슨 소리야?");
+			joText.put("text", "무슨 소리야? 정수한테 명령어 추가해달라고해");
 		}
 		
 		joRes.put("message", joText);
