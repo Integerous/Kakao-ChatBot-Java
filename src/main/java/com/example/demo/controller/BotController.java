@@ -38,7 +38,7 @@ public class BotController {
 		}else if(content.contains("뭐해")) {
 			joText.put("text", "챗봇만들어요");
 		}else if(content.contains("누구")) {
-			joText.put("text", "저는 현금구 테스트봇이에요~");
+			joText.put("text", "저는 현금구름 테스트봇이에요~");
 		}else if(content.contains("꺼저")) {
 			joText.put("text", "반사");
 		}else if(content.contains("미친")) {
