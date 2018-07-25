@@ -35,7 +35,7 @@ public class BotController {
 		btns.add("공지사항 보기");
 		btns.add("FAQ 보기");
 		btns.add("1:1 문의하기");
-		btns.add("투자상품 문의하기");
+		btns.add("챗봇이랑 대화하기");
 		
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
@@ -53,13 +53,6 @@ public class BotController {
 		JSONObject jomesBtn = new JSONObject();
 		JSONObject joBtn = new JSONObject();
 		
-		ArrayList<String> btns = new ArrayList<>();
-		btns.add("공지사항 보기?");
-		btns.add("FAQ 보기?");
-		btns.add("1:1 문의하기?");
-		btns.add("챗봇과 대화하기");
-		joBtn.put("type", "buttons");
-		joBtn.put("buttons", btns);
 	
 		ArrayList<String> btns2 = new ArrayList<>();
 		
@@ -79,21 +72,36 @@ public class BotController {
 			joText.put("message_button", jomesBtn);
 		}
 		else if(content.contains("FAQ")) {
-			joText.put("text", "아래의 URL을 클릭하여 홈페이지에서 FAQ을 확인하시거나 FAQ 범위를 선택해주세요");
-			jomesBtn.put("label", "FAQ 확인하기");
-			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
-			joText.put("message_button", jomesBtn);
-			
+			joText.put("text", "FAQ 범위를 선택해주세요");
 			btns2.add("공통");
 			btns2.add("대출자");
 			btns2.add("투자자");
+			btns2.add("취소");
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns2);
 		}
+		else if(content.contains("공통")) {
+			joText.put("text", "아래 링크를 통해 공통 FAQ를 확인하세요!");
+			jomesBtn.put("label", "공통 FAQ 확인하기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
+			joText.put("message_button", jomesBtn);
+		}
+		else if(content.contains("대출자")) {
+			joText.put("text", "아래 링크를 통해 대출자 FAQ를 확인하세요!");
+			jomesBtn.put("label", "대출자 FAQ 확인하기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
+			joText.put("message_button", jomesBtn);
+		}
+		else if(content.contains("투자자")) {
+			joText.put("text", "아래 링크를 통해 투자자 FAQ를 확인하세요!");
+			jomesBtn.put("label", "투자자 FAQ 확인하기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
+			joText.put("message_button", jomesBtn);
+		}
+		
+		
 		else if(content.contains("챗봇")) {
 			joBtn.put("type", "text");
-			
-			return joBtn.toJSONString();
 			
 		}
 		else if(content.contains("안녕")) {
