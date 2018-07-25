@@ -84,9 +84,9 @@ public class BotController {
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
-			btns.add("공통");
-			btns.add("대출자");
-			btns.add("투자자");
+			btns2.add("공통");
+			btns2.add("대출자");
+			btns2.add("투자자");
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns2);
 		}
