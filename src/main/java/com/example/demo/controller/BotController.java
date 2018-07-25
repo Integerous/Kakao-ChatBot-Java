@@ -66,6 +66,8 @@ public class BotController {
 	
 		
 		if(content.contains("메뉴")) {
+			joText.put("text", "메뉴에서 명령을 선택해주세요~");
+			
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns);
 		}
@@ -104,8 +106,6 @@ public class BotController {
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
-			joBtn.put("type", "buttons");
-			joBtn.put("buttons", btns);
 		}
 		else if(content.contains("대출자")) {
 			joText.put("text", "아래 링크를 통해 대출자 FAQ를 확인하세요!");
@@ -113,8 +113,6 @@ public class BotController {
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
-			joBtn.put("type", "buttons");
-			joBtn.put("buttons", btns);
 		}
 		else if(content.contains("투자자")) {
 			joText.put("text", "아래 링크를 통해 투자자 FAQ를 확인하세요!");
@@ -122,12 +120,10 @@ public class BotController {
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
-			joBtn.put("type", "buttons");
-			joBtn.put("buttons", btns);
 		}
 		
 		else if(content.contains("취소")) {
-			joText.put("text", "취소되었습니다. 메뉴에서 선택해주세요~");
+			joText.put("text", "취소되었습니다. 메뉴에서 명령을 선택해주세요~");
 		
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns);
