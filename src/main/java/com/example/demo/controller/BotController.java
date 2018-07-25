@@ -28,10 +28,10 @@ public class BotController {
 		JSONObject joBtn = new JSONObject();
 		ArrayList<String> btns = new ArrayList<>();
 		
+		btns.add("챗봇이랑 대화하기");
 		btns.add("공지사항 보기");
 		btns.add("FAQ 보기");
 		btns.add("1:1 문의하기");
-		btns.add("챗봇이랑 대화하기");
 		
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
@@ -53,10 +53,10 @@ public class BotController {
 		
 		/// 메뉴얼 버튼들
 		ArrayList<String> btns = new ArrayList<>();
+			btns.add("챗봇이랑 대화하기");
 			btns.add("공지사항 보기");
 			btns.add("FAQ 보기");
 			btns.add("1:1 문의하기");
-			btns.add("챗봇이랑 대화하기");
 		
 		/// Depth2 버튼들
 		ArrayList<String> btns2 = new ArrayList<>();
@@ -127,7 +127,7 @@ public class BotController {
 		}
 		
 		else if(content.contains("챗봇")) {
-			joText.put("text", "(하트뿅)챗봇과 대화를 나눠보세요! 아직은 매우 멍청하답니다ㅎㅎ");
+			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ 메뉴를 다시 보고싶으시면 '메뉴' 라고 입력해주세요ㅎ ");
 			joBtn.put("type", "text");
 		}
 		else if(content.contains("안녕")) {
