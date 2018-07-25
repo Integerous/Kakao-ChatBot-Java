@@ -56,6 +56,9 @@ public class BotController {
 	
 		ArrayList<String> btns2 = new ArrayList<>();
 		
+		joBtn.put("type", "buttons");
+		joBtn.put("buttons", btns2);
+	
 		
 		if(content.contains("1:1")) {
 			joText.put("text", "안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요.");
