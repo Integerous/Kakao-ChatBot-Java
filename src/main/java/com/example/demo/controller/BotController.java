@@ -126,9 +126,16 @@ public class BotController {
 			joBtn.put("buttons", btns);
 		}
 		
+		else if(content.contains("취소")) {
+			joText.put("text", "취소되었습니다. 메뉴에서 선택해주세요~");
+		
+			joBtn.put("type", "buttons");
+			joBtn.put("buttons", btns);
+		}
+		
 		else if(content.contains("챗봇")) {
 			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ 메뉴를 다시 보고싶으시면 '메뉴' 라고 입력해주세요ㅎ ");
-			joBtn.put("type", "text");
+			//joBtn.put("type", "text");
 		}
 		else if(content.contains("안녕")) {
 			joText.put("text", "안녕하세요ㅎㅎ");
