@@ -101,6 +101,7 @@ public class BotController {
 		
 		
 		else if(content.contains("챗봇")) {
+			joText.put("text", "(하트뿅)챗봇과 대화를 나눠보세요! 아직은 매우 멍청하답니다ㅎㅎ");
 			joBtn.put("type", "text");
 			
 		}
