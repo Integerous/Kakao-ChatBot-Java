@@ -39,6 +39,7 @@ public class BotController {
 		return joBtn.toJSONString();
 	}
 	
+	
 	@RequestMapping(value = "/message", method = RequestMethod.POST, headers = "Accept=application/json")
 	public String message(@RequestBody JSONObject resObj) {
 		
@@ -68,12 +69,14 @@ public class BotController {
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns);
 		}
-		if(content.contains("1:1")) {
+		else if(content.contains("1:1")) {
 			joText.put("text", "안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요.");
 			jomesBtn.put("label", "1:1 문의하러가기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/contact");
 			joText.put("message_button", jomesBtn);
 		
+			joBtn.put("type", "buttons");
+			joBtn.put("buttons", btns);
 		}
 		else if(content.contains("공지사항")) {
 			joText.put("text", "공지사항을 크롤링해와서 여기에 뿌려주는 기능을 만들고싶습니다. "
@@ -81,6 +84,9 @@ public class BotController {
 			jomesBtn.put("label", "공지사항 확인하기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/news?mode=story");
 			joText.put("message_button", jomesBtn);
+			
+			joBtn.put("type", "buttons");
+			joBtn.put("buttons", btns);
 		}
 		else if(content.contains("FAQ")) {
 			joText.put("text", "FAQ 범위를 선택해주세요");
@@ -88,6 +94,7 @@ public class BotController {
 			btns2.add("대출자");
 			btns2.add("투자자");
 			btns2.add("취소");
+			
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns2);
 		}
@@ -119,11 +126,9 @@ public class BotController {
 			joBtn.put("buttons", btns);
 		}
 		
-		
 		else if(content.contains("챗봇")) {
 			joText.put("text", "(하트뿅)챗봇과 대화를 나눠보세요! 아직은 매우 멍청하답니다ㅎㅎ");
 			joBtn.put("type", "text");
-			
 		}
 		else if(content.contains("안녕")) {
 			joText.put("text", "안녕하세요ㅎㅎ");
