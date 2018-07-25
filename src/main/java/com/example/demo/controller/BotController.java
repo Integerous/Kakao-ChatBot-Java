@@ -57,7 +57,7 @@ public class BotController {
 		btns.add("공지사항 보기?");
 		btns.add("FAQ 보기?");
 		btns.add("1:1 문의하기?");
-		btns.add("투자상품 문의하기?");
+		btns.add("챗봇과 대화하기");
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
 	
@@ -89,6 +89,12 @@ public class BotController {
 			btns2.add("투자자");
 			joBtn.put("type", "buttons");
 			joBtn.put("buttons", btns2);
+		}
+		else if(content.contains("챗봇")) {
+			joBtn.put("type", "text");
+			
+			return joBtn.toJSONString();
+			
 		}
 		else if(content.contains("안녕")) {
 			joText.put("text", "안녕하세요ㅎㅎ");
