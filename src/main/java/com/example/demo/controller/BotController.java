@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,17 +21,26 @@ public class BotController {
 	}
 	
 	@RequestMapping(value = "/keyboard", method = RequestMethod.GET)
-	public KeyboardVO keyboard() {
-		
-		KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
-		
-		return keyboard;
+	public String keyboard() {
 		
 		
-		/*JSONObject joBtn = new JSONObject();
+		// VO로 구현
+		/*KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
+		return keyboard;*/
+		
+		
+		JSONObject joBtn = new JSONObject();
+		ArrayList<String> btns = new ArrayList<>();
+		
+		btns.add("공지사항 보기");
+		btns.add("FAQ 보기");
+		btns.add("1:1 문의하기");
+		btns.add("투자상품 문의하기");
+		
 		joBtn.put("type", "buttons");
+		joBtn.put("buttons", btns);
 		
-		return joBtn.toJSONString();*/
+		return joBtn.toJSONString();
 	}
 	
 	@RequestMapping(value = "/message", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -39,8 +50,47 @@ public class BotController {
 		content = (String) resObj.get("content");
 		JSONObject joRes = new JSONObject();
 		JSONObject joText = new JSONObject();
+		JSONObject jomesBtn = new JSONObject();
+		JSONObject joBtn = new JSONObject();
 		
-		if(content.contains("안녕")) {
+		ArrayList<String> btns = new ArrayList<>();
+		btns.add("공지사항 보기?");
+		btns.add("FAQ 보기?");
+		btns.add("1:1 문의하기?");
+		btns.add("투자상품 문의하기?");
+		joBtn.put("type", "buttons");
+		joBtn.put("buttons", btns);
+	
+		ArrayList<String> btns2 = new ArrayList<>();
+		
+		
+		if(content.contains("1:1")) {
+			joText.put("text", "안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요.");
+			jomesBtn.put("label", "1:1 문의하러가기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/contact");
+			joText.put("message_button", jomesBtn);
+		
+		}
+		else if(content.contains("공지사항")) {
+			joText.put("text", "공지사항을 크롤링해와서 여기에 뿌려주는 기능을 만들고싶습니다. "
+					+ "우선은 아래의 URL을 클릭하여 공지사항을 확인해주세요ㅎ");
+			jomesBtn.put("label", "공지사항 확인하기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/news?mode=story");
+			joText.put("message_button", jomesBtn);
+		}
+		else if(content.contains("FAQ")) {
+			joText.put("text", "아래의 URL을 클릭하여 홈페이지에서 FAQ을 확인하시거나 FAQ 범위를 선택해주세요");
+			jomesBtn.put("label", "FAQ 확인하기");
+			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
+			joText.put("message_button", jomesBtn);
+			
+			btns.add("공통");
+			btns.add("대출자");
+			btns.add("투자자");
+			joBtn.put("type", "buttons");
+			joBtn.put("buttons", btns2);
+		}
+		else if(content.contains("안녕")) {
 			joText.put("text", "안녕하세요ㅎㅎ");
 		}else if(content.contains("뭐해")) {
 			joText.put("text", "챗봇만들어요");
@@ -55,10 +105,11 @@ public class BotController {
 		}else if(content.contains("조용")) {
 			joText.put("text", "쉿~");
 		}else {
-			joText.put("text", "무슨 소리야? 정수한테 명령어 추가해달라고해");
+			joText.put("text", "아직 구현하지 않은 명령입니다ㅠ 정수한테 명령어 추가 해달라고 하세요~");
 		}
 		
 		joRes.put("message", joText);
+		joRes.put("keyboard", joBtn);
 		System.out.println(joRes.toJSONString());
 		
 		return joRes.toJSONString();
