@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.vo.KeyboardVO;
+
 import net.minidev.json.JSONObject;
 
 @RestController
@@ -17,12 +19,17 @@ public class BotController {
 	}
 	
 	@RequestMapping(value = "/keyboard", method = RequestMethod.GET)
-	public String keyboard() {
+	public KeyboardVO keyboard() {
 		
-		JSONObject joBtn = new JSONObject();
-		joBtn.put("type", "text");
+		KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
 		
-		return joBtn.toJSONString();
+		return keyboard;
+		
+		
+		/*JSONObject joBtn = new JSONObject();
+		joBtn.put("type", "buttons");
+		
+		return joBtn.toJSONString();*/
 	}
 	
 	@RequestMapping(value = "/message", method = RequestMethod.POST, headers = "Accept=application/json")
