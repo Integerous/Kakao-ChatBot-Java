@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.vo.KeyboardVO;
+import com.example.demo.vo.PhotoVO;
 
 import net.minidev.json.JSONObject;
 
@@ -49,7 +50,7 @@ public class BotController {
 		JSONObject joText = new JSONObject();
 		JSONObject jomesBtn = new JSONObject();
 		JSONObject joBtn = new JSONObject();
-		
+		JSONObject joPhotoBtn = new JSONObject();
 		
 		/// 메뉴얼 버튼들
 		ArrayList<String> btns = new ArrayList<>();
@@ -127,7 +128,16 @@ public class BotController {
 		
 		else if(content.contains("챗봇")) {
 			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ 메뉴를 다시 보고싶으시면 '메뉴' 라고 입력해주세요ㅎ ");
-			//joBtn.put("type", "text");
+			joPhotoBtn.put("url", "http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
+			joPhotoBtn.put("width", 540);
+			joPhotoBtn.put("height", 427);
+			joText.put("photo", joPhotoBtn);
+			
+			/*PhotoVO photo = new PhotoVO();
+			photo.setUrl("https://www.channelsight.com/wp-content/uploads/2018/01/what-chatbot.png");
+			photo.setWidth(481);
+			photo.setHeight(395);*/
+			
 		}
 		else if(content.contains("안녕")) {
 			joText.put("text", "안녕하세요ㅎㅎ");
