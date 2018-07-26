@@ -127,12 +127,11 @@ public class BotController {
 		}
 		
 		else if(content.contains("챗봇")) {
-			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ");
+			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ *메뉴 다시보기 = '메뉴' 입력!");
 			photo.put("url", "http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
 			photo.put("width", 540);
 			photo.put("height", 427);
 			joText.put("photo", photo);
-			joText.put("text", "메뉴를 다시 보고싶으시면 '메뉴' 라고 입력해주세요ㅎ");
 			
 			/*PhotoVO photo = new PhotoVO();
 			photo.setUrl("https://www.channelsight.com/wp-content/uploads/2018/01/what-chatbot.png");
