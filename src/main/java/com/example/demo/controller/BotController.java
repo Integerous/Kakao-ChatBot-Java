@@ -25,14 +25,9 @@ public class BotController {
 		/*KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
 		return keyboard;*/
 		
-		
-		JSONObject joText = new JSONObject();
+
 		JSONObject joBtn = new JSONObject();
-		JSONObject joRes = new JSONObject();
 		ArrayList<String> btns = new ArrayList<>();
-		
-		
-		joText.put("text", "구름현금 고객님 안녕하세요?ㅎㅎ 원하시는 서비스를 선택해주세요 :)");
 		
 		btns.add("챗봇이랑 대화하기");
 		btns.add("공지사항 보기");
@@ -42,10 +37,7 @@ public class BotController {
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
 		
-		joRes.put("message", joText);
-		joRes.put("keyboard", joBtn);
-		
-		return joRes.toJSONString();
+		return joBtn.toJSONString();
 	}
 	
 	
