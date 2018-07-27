@@ -26,8 +26,13 @@ public class BotController {
 		return keyboard;*/
 		
 		
+		JSONObject joText = new JSONObject();
 		JSONObject joBtn = new JSONObject();
+		JSONObject joRes = new JSONObject();
 		ArrayList<String> btns = new ArrayList<>();
+		
+		
+		joText.put("text", "구름현금 고객님 안녕하세요?ㅎㅎ 원하시는 서비스를 선택해주세요 :)");
 		
 		btns.add("챗봇이랑 대화하기");
 		btns.add("공지사항 보기");
@@ -37,7 +42,10 @@ public class BotController {
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
 		
-		return joBtn.toJSONString();
+		joRes.put("message", joText);
+		joRes.put("keyboard", joBtn);
+		
+		return joRes.toJSONString();
 	}
 	
 	
@@ -73,7 +81,7 @@ public class BotController {
 			joBtn.put("buttons", btns);
 		}
 		else if(content.contains("1:1")) {
-			joText.put("text", "안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요. 메뉴로 돌아가시려면 '메뉴'라고 명령하세요.");
+			joText.put("text", "안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요. (메뉴 다시보기 = '메뉴' 입력!)");
 			jomesBtn.put("label", "1:1 문의하러가기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/contact");
 			joText.put("message_button", jomesBtn);
@@ -81,7 +89,7 @@ public class BotController {
 		}
 		else if(content.contains("공지사항")) {
 			joText.put("text", "공지사항을 크롤링해와서 여기에 뿌려주는 기능을 차차 구현하려 합니다. "
-					+ "지금은 아래 링크를 클릭하여 공지사항을 확인해주세요ㅎ 메뉴로 돌아가시려면 '메뉴'라고 명령하세요.");
+					+ "지금은 아래 링크를 클릭하여 공지사항을 확인해주세요ㅎ (메뉴 다시보기 = '메뉴' 입력!)");
 			jomesBtn.put("label", "공지사항 확인하기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/news?mode=story");
 			joText.put("message_button", jomesBtn);
@@ -98,21 +106,21 @@ public class BotController {
 			joBtn.put("buttons", btns2);
 		}
 		else if(content.contains("공통")) {
-			joText.put("text", "아래 링크를 통해 공통 FAQ를 확인하세요! 메뉴로 돌아가시려면 '메뉴'라고 명령하세요.");
+			joText.put("text", "아래 링크를 통해 공통 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
 			jomesBtn.put("label", "공통 FAQ 확인하기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
 		}
 		else if(content.contains("대출자")) {
-			joText.put("text", "아래 링크를 통해 대출자 FAQ를 확인하세요! 메뉴로 돌아가시려면 '메뉴'라고 명령하세요.");
+			joText.put("text", "아래 링크를 통해 대출자 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
 			jomesBtn.put("label", "대출자 FAQ 확인하기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
 			
 		}
 		else if(content.contains("투자자")) {
-			joText.put("text", "아래 링크를 통해 투자자 FAQ를 확인하세요! 메뉴로 돌아가시려면 '메뉴'라고 명령하세요.");
+			joText.put("text", "아래 링크를 통해 투자자 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
 			jomesBtn.put("label", "투자자 FAQ 확인하기");
 			jomesBtn.put("url", "https://www.funda.kr/v2/faq");
 			joText.put("message_button", jomesBtn);
@@ -127,7 +135,7 @@ public class BotController {
 		}
 		
 		else if(content.contains("챗봇")) {
-			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ *메뉴 다시보기 = '메뉴' 입력!");
+			joText.put("text", "(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ (메뉴 다시보기 = '메뉴' 입력!)");
 			photo.put("url", "http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
 			photo.put("width", 540);
 			photo.put("height", 427);
