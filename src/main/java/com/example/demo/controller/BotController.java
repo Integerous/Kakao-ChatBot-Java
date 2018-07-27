@@ -25,7 +25,6 @@ public class BotController {
 		/*KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
 		return keyboard;*/
 		
-
 		JSONObject joBtn = new JSONObject();
 		ArrayList<String> btns = new ArrayList<>();
 		
