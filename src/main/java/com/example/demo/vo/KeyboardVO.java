@@ -12,12 +12,12 @@ public class KeyboardVO {
 		this.type = "buttons";
 		this.buttons = buttons;
 	}
+	
 
 
 	public String getType() {
 		return type;
 	}
-
 
 	public void setType(String type) {
 		this.type = type;

@@ -16,16 +16,19 @@ import net.minidev.json.JSONObject;
 public class BotController {
 	
 	
-	
 	@RequestMapping(value = "/keyboard", method = RequestMethod.GET)
-	public String keyboard() {
+	public KeyboardVO keyboard() {
 		
+//========== VO로 구현 ==========
 		
-		// VO로 구현
-		/*KeyboardVO keyboard = new KeyboardVO(new String[] {"공지사항 보기", "FAQ 보기", "1:1 문의하기"});
-		return keyboard;*/
+		KeyboardVO keyboard = new KeyboardVO
+				(new String[] {"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
 		
-		JSONObject joBtn = new JSONObject();
+		return keyboard;		
+	}
+//========== JSON 객체로 구현  ==========
+		
+		/*JSONObject joBtn = new JSONObject();
 		ArrayList<String> btns = new ArrayList<>();
 		
 		btns.add("챗봇이랑 대화하기");
@@ -36,8 +39,8 @@ public class BotController {
 		joBtn.put("type", "buttons");
 		joBtn.put("buttons", btns);
 		
-		return joBtn.toJSONString();
-	}
+		return joBtn.toJSONString();*/
+
 	
 	
 	@RequestMapping(value = "/message", method = RequestMethod.POST, headers = "Accept=application/json")
