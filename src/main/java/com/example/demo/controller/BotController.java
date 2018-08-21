@@ -103,8 +103,8 @@ public class BotController {
 			
 			PhotoVO photo = new PhotoVO();
 			photo.setUrl("http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
-			photo.setHeight(540);
-			photo.setWidth(427);
+			photo.setHeight(427);
+			photo.setWidth(540);
 			mes_vo.setPhoto(photo);
 			mes_vo.setText("(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ (메뉴 다시보기 = '메뉴' 입력!)");
 		}
