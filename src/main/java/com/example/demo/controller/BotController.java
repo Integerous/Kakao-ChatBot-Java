@@ -20,7 +20,7 @@ import net.minidev.json.JSONObject;
 public class BotController {
 	
 //========== VO로 구현 ==========	
-
+	
 	@RequestMapping(value = "/keyboard", method = RequestMethod.GET)
 	public KeyboardVO keyboard() {
 		
