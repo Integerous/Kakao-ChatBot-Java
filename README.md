@@ -42,17 +42,23 @@
     MessageButtonVO message_button;
     ~~~
   - PhotoVO.java
-    - String url;
-    - int width;
-    - int height;
+    ~~~java
+    String url;
+    int width;
+    int height;
+    ~~~
 ### 3.2. 메세지 수신 및 자동응답 API의 Objects를 VO 파일로 생성
   - RequestMessageVO.java (메세지 수신)
-    - String user_key;
-    - String type;
-    - String conent;
+    ~~~java
+    String user_key;
+    String type;
+    String conent;
+    ~~~
   - ResponseMessageVO.java (자동 응답)
-    - MessageVO message;
-    - KeyboardVO keyboard;
+    ~~~java
+    MessageVO message;
+    KeyboardVO keyboard;
+    ~~~
 ### 3.3. Controller 생성 
 ~~~java
 package com.example.demo.controller;
