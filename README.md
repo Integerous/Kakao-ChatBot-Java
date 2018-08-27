@@ -51,7 +51,7 @@
 ~~~java
 package com.example.demo.controller;
 
-~~~~~~ import 생략 ~~~~~~
+~~~~~~ (import) 생략 ~~~~~~
 
 @RestController
 public class BotController {
@@ -123,3 +123,4 @@ public class BotController {
 }
 ~~~
 ## 4. AWS EC2 Linux 서버에 배포
+[AWS EC2 서버에 자바 소스코드 배포 및 재배포 (Deploying Java project on AWS EC2)](https://github.com/Integerous/TIL/blob/master/AWS/DeployOnAWSServer.md) 참고
