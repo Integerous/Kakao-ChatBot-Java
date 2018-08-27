@@ -53,7 +53,7 @@ public class BotController {
 			mes_vo.setMessage_button(messageButton);
 			mes_vo.setText("안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요. (메뉴 다시보기 = '메뉴' 입력!)");
 		}
-		else if(command.equals("공지사항 보")) {
+		else if(command.equals("공지사항 보기")) {
 			
 			MessageButtonVO messageButton = new MessageButtonVO();
 			messageButton.setLabel("공지사항 보러 가기");
