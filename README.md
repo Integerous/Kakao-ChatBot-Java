@@ -23,14 +23,23 @@
 - [채팅방 나가기](https://github.com/plusfriend/auto_reply#54-%EC%B1%84%ED%8C%85%EB%B0%A9-%EB%82%98%EA%B0%80%EA%B8%B0)
 
 ## 3. 구현
-### 3.1. VO 생성
->카카오에서 허용하는 Objects를 각각 VO파일로 생성.  
+### 3.1. API 명세서에 기재된 Objects를 VO 파일로 생성  
 >Getter/Setter, ToString()을 생성하고, KeyboardVO의 경우에만 생성자로 버튼 배열 지정(버튼으로만 쓰이므로)
   - KeyboardVO.java
+    - String type;
+    - String[] buttons;
   - MessageButtonVO.java
+    - String label;
+    - String url;
   - MessageVO.java
+    - String text;
+    - PhotoVO photo;
+    - MessageButtonVO message_button;
   - PhotoVO.java
->메세지 수신 및 자동응답 API의 객체 구현
+    - String url;
+    - int width;
+    - int height;
+### 3.2. 메세지 수신 및 자동응답 API의 Objects를 VO 파일로 생성
   - RequestMessageVO.java (메세지 수신)
     - String user_key;
     - String type;
@@ -38,25 +47,11 @@
   - ResponseMessageVO.java (자동 응답)
     - MessageVO message;
     - KeyboardVO keyboard;
-### 3.2. Controller 생성 
+### 3.3. Controller 생성 
 ~~~java
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.vo.KeyboardVO;
-import com.example.demo.vo.MessageButtonVO;
-import com.example.demo.vo.MessageVO;
-import com.example.demo.vo.PhotoVO;
-import com.example.demo.vo.RequestMessageVO;
-import com.example.demo.vo.ResponseMessageVO;
-
-import net.minidev.json.JSONObject;
+~~~~~~ import 생략 ~~~~~~
 
 @RestController
 public class BotController {
