@@ -26,15 +26,21 @@
 ### 3.1. API 명세서에 기재된 Objects를 VO 파일로 생성  
 >Getter/Setter, ToString()을 생성하고, KeyboardVO의 경우에만 생성자로 버튼 배열 지정(버튼으로만 쓰이므로)
   - KeyboardVO.java
-    - String type;
-    - String[] buttons;
+    ~~~java
+    String type;
+    String[] buttons;
+    ~~~
   - MessageButtonVO.java
-    - String label;
-    - String url;
+    ~~~java
+    String label;
+    String url;
+    ~~~
   - MessageVO.java
-    - String text;
-    - PhotoVO photo;
-    - MessageButtonVO message_button;
+    ~~~java
+    String text;
+    PhotoVO photo;
+    MessageButtonVO message_button;
+    ~~~
   - PhotoVO.java
     - String url;
     - int width;
