@@ -103,43 +103,9 @@ public class BotController {
 			mes_vo.setText("공지사항을 여기에 뿌려주는 기능을 차차 구현하려 합니다. "
 					+ "지금은 아래 링크를 클릭하여 공지사항을 확인해주세요ㅎ (메뉴 다시보기 = '메뉴' 입력!)");
 		}
-		else if(command.equals("FAQ 보기")) {
-			
-			mes_vo.setText("FAQ 범위를 선택해주세요");
-			KeyboardVO keyboard = new KeyboardVO(new String[] {"공통", "대출자", "투자자", "취소"});
-			res_vo.setKeyboard(keyboard);
-		}
-		else if(command.equals("공통")) {
-			
-			MessageButtonVO messageButton = new MessageButtonVO();
-			messageButton.setLabel("공통 FAQ 확인하기");
-			messageButton.setUrl("https://www.funda.kr/v2/faq");
-			mes_vo.setMessage_button(messageButton);
-			mes_vo.setText("아래 링크를 통해 공통 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		else if(command.equals("대출자")) {
-			
-			MessageButtonVO messageButton = new MessageButtonVO();
-			messageButton.setLabel("대출자 FAQ 확인하기");
-			messageButton.setUrl("https://www.funda.kr/v2/faq");
-			mes_vo.setMessage_button(messageButton);
-			mes_vo.setText("아래 링크를 통해 대출자 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		else if(command.equals("투자자")) {
-	
-			MessageButtonVO messageButton = new MessageButtonVO();
-			messageButton.setLabel("투자자 FAQ 확인하기");
-			messageButton.setUrl("https://www.funda.kr/v2/faq");
-			mes_vo.setMessage_button(messageButton);
-			mes_vo.setText("아래 링크를 통해 투자자 FAQ를 확인하세요! (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		else if(command.equals("취소")) {
-			
-			mes_vo.setText("메뉴에서 명령을 선택해주세요~");
-			KeyboardVO keyboard = new KeyboardVO(new String[] 
-					{"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
-			res_vo.setKeyboard(keyboard);
-		}
+		
+		~~~~~~~~~~~~~~~~~~~~~~ 생략 ~~~~~~~~~~~~~~~~~~~~~
+		
 		else if(command.equals("챗봇이랑 대화하기")){
 			
 			PhotoVO photo = new PhotoVO();
@@ -161,4 +127,4 @@ public class BotController {
 	}
 }
 ~~~
-## 4. AWS EC2 Linux 서버 사용
+## 4. AWS EC2 Linux 서버에 배포
