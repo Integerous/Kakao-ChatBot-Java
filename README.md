@@ -69,69 +69,60 @@ package com.example.demo.controller;
 public class BotController {
 
 
-	@RequestMapping(value = "/keyboard", method = RequestMethod.GET)
-	public KeyboardVO keyboard() {
-		
-		KeyboardVO keyboard = new KeyboardVO
-				(new String[] {"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
-		
-		return keyboard;		
-	}
+    @RequestMapping(value = "/keyboard", method = RequestMethod.GET)
+    public KeyboardVO keyboard() {
+
+	KeyboardVO keyboard = new KeyboardVO
+			(new String[] {"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
+
+	return keyboard;		
+    }
 	
-	@RequestMapping(value = "/message", method = RequestMethod.POST)
-	public ResponseMessageVO message(@RequestBody RequestMessageVO vo) {
+    @RequestMapping(value = "/message", method = RequestMethod.POST)
+    public ResponseMessageVO message(@RequestBody RequestMessageVO vo) {
 		
-		ResponseMessageVO res_vo = new ResponseMessageVO();
-		MessageVO mes_vo = new MessageVO();
-		String command = vo.getContent();
-		
-		
-		if(command.equals("메뉴")) {
-			
-			mes_vo.setText("메뉴에서 명령을 선택해주세요~");
-			KeyboardVO keyboard = new KeyboardVO(new String[] 
-					{"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
-			res_vo.setKeyboard(keyboard);
-		}
-		else if(command.equals("1:1 문의하기")) {
-			
-			MessageButtonVO messageButton = new MessageButtonVO();
-			messageButton.setLabel("1:1 문의하러 가기");
-			messageButton.setUrl("https://www.funda.kr/v2/contact");
-			mes_vo.setMessage_button(messageButton);
-			mes_vo.setText("안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요. (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		else if(command.equals("공지사항")) {
-			
-			MessageButtonVO messageButton = new MessageButtonVO();
-			messageButton.setLabel("공지사항 보러 가기");
-			messageButton.setUrl("https://www.funda.kr/v2/news?mode=story");
-			mes_vo.setMessage_button(messageButton);
-			mes_vo.setText("공지사항을 여기에 뿌려주는 기능을 차차 구현하려 합니다. "
-					+ "지금은 아래 링크를 클릭하여 공지사항을 확인해주세요ㅎ (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		
-		~~~~~~~~~~~~~~~~~~~~~~ 생략 ~~~~~~~~~~~~~~~~~~~~~
-		
-		else if(command.equals("챗봇이랑 대화하기")){
-			
-			PhotoVO photo = new PhotoVO();
-			photo.setUrl("http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
-			photo.setHeight(427);
-			photo.setWidth(540);
-			mes_vo.setPhoto(photo);
-			mes_vo.setText("(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ (메뉴 다시보기 = '메뉴' 입력!)");
-		}
-		else if(command.contains("안녕")){
-			mes_vo.setText("안녕하세요ㅎㅎ");
-		}
-		else {
-			mes_vo.setText("아직 구현하지 않은 명령어입니다. Ryan에게 문의하세요~");
-		}
-		
-		res_vo.setMessage(mes_vo);
-		return res_vo;
+	ResponseMessageVO res_vo = new ResponseMessageVO();
+	MessageVO mes_vo = new MessageVO();
+	String command = vo.getContent();
+
+
+	if(command.equals("메뉴")) {
+
+		mes_vo.setText("메뉴에서 명령을 선택해주세요~");
+		KeyboardVO keyboard = new KeyboardVO(new String[] 
+				{"챗봇이랑 대화하기", "공지사항 보기", "FAQ 보기", "1:1 문의하기"});
+		res_vo.setKeyboard(keyboard);
 	}
+	else if(command.equals("1:1 문의하기")) {
+
+		MessageButtonVO messageButton = new MessageButtonVO();
+		messageButton.setLabel("1:1 문의하러 가기");
+		messageButton.setUrl("https://www.funda.kr/v2/contact");
+		mes_vo.setMessage_button(messageButton);
+		mes_vo.setText("안녕하세요 고객님, 아래의 URL을 클릭하여 1:1 문의사항을 작성해주세요. (메뉴 다시보기 = '메뉴' 입력!)");
+	}
+
+	~~~~~~~~~~~~~~~~~~~~~~ 생략 ~~~~~~~~~~~~~~~~~~~~~
+
+	else if(command.equals("챗봇이랑 대화하기")){
+
+		PhotoVO photo = new PhotoVO();
+		photo.setUrl("http://www.businesscomputingworld.co.uk/wp-content/uploads/2018/01/Chatbot.jpg");
+		photo.setHeight(427);
+		photo.setWidth(540);
+		mes_vo.setPhoto(photo);
+		mes_vo.setText("(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ (메뉴 다시보기 = '메뉴' 입력!)");
+	}
+	else if(command.contains("안녕")){
+		mes_vo.setText("안녕하세요ㅎㅎ");
+	}
+	else {
+		mes_vo.setText("아직 구현하지 않은 명령어입니다. Ryan에게 문의하세요~");
+	}
+
+	res_vo.setMessage(mes_vo);
+	return res_vo;
+    }
 }
 ~~~
 ## 4. AWS EC2 Linux 서버에 배포
