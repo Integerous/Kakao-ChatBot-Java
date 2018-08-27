@@ -109,7 +109,7 @@ public class BotController {
 			mes_vo.setText("(하트뿅) 저와 대화를 나눠볼까용? 아직은 매우 멍청하답니다ㅎㅎ (메뉴 다시보기 = '메뉴' 입력!)");
 		}
 		else if(command.contains("안녕")){
-			mes_vo.setText("안녕하세요ㅎㅎ");
+			mes_vo.setText("안녕하세요?ㅎㅎ");
 		}
 		else {
 			mes_vo.setText("아직 구현하지 않은 명령어입니다. Ryan에게 문의하세요~");
