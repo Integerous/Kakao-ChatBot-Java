@@ -1,6 +1,8 @@
 # 카카오톡 플러스친구 챗봇 개발
+>결과물 : http://pf.kakao.com/_xoEBQC (챗봇 링크)  
 >추후 회사 업무에 필요한 챗봇을 만들기 위해 테스트로 개발중인 카카오톡 플러스친구 챗봇 개발기 (작성중)
->>[카카오톡 플러스친구 API v.2.0](https://github.com/plusfriend/auto_reply)의 Document를 보고 만들었다.
+>>[카카오톡 플러스친구 API v.2.0](https://github.com/plusfriend/auto_reply)의 Document를 보고 만들었다.  
+
 
 ## 1. 개발 환경
 - AWS Ubuntu EC2
